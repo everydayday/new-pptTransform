@@ -1,6 +1,9 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QTextEdit
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import *
+from pptx import Presentation   
+
 
 class MyApp(QWidget):
 
@@ -12,9 +15,8 @@ class MyApp(QWidget):
         self.setWindowTitle('pptTransform')
         self.setGeometry(300, 300, 1000, 600)
         
-    
 
-        qte = QTextEdit(self)
+        qte = QTextEdit(self)   ## self.qte 안 하니 button_clicked 시, qte를 attribute로 인식 못함.
         qte.setGeometry(50,50,600,500)
         
         
@@ -27,8 +29,8 @@ class MyApp(QWidget):
         self.show()
         
     def button_clicked(self):
-        print('button')
-
+        lyrics = self.qte.toPlainText()
+        
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
