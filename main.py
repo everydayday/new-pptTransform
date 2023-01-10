@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QTextEdit
-
+from PyQt5.QtWidgets import *
 
 class MyApp(QWidget):
 
@@ -15,12 +15,19 @@ class MyApp(QWidget):
     
 
         qte = QTextEdit(self)
-        qte.setGeometry(0,0,600,500)
-        # qte.move(0, 0)
+        qte.setGeometry(50,50,600,500)
+        
+        
+        qbtn1 = QPushButton('생성하기',self)
+        qbtn1.setGeometry(650,50,300,100)
+        qbtn1.clicked.connect(self.button_clicked)
 
         
         
         self.show()
+        
+    def button_clicked(self):
+        print('button')
 
 
 if __name__ == '__main__':
