@@ -3,7 +3,9 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QTextEdit
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon
-from pptx import Presentation   
+from pptx import Presentation  
+from pptx.util import Inches 
+from slide import make_slide
 
 
 class MyApp(QWidget):
@@ -31,7 +33,10 @@ class MyApp(QWidget):
         self.show()
         
     def button_clicked(self):
-        lyrics = self.qte.toPlainText()
+        lyrics_str = self.qte.toPlainText()
+        make_slide(lyrics_str)
+        
+        
         
 
 if __name__ == '__main__':
