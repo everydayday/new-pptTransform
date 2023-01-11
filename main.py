@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QTextEdit
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import *
+from PyQt5.QtGui import QIcon
 from pptx import Presentation   
 
 
@@ -14,15 +15,16 @@ class MyApp(QWidget):
     def initUI(self):
         self.setWindowTitle('pptTransform')
         self.setGeometry(300, 300, 1000, 600)
+        self.setWindowIcon(QIcon('powerpoint.png'))
         
 
-        qte = QTextEdit(self)   ## self.qte 안 하니 button_clicked 시, qte를 attribute로 인식 못함.
-        qte.setGeometry(50,50,600,500)
+        self.qte = QTextEdit(self)   ## self.qte 안 하니 button_clicked 시, qte를 attribute로 인식 못함.
+        self.qte.setGeometry(50,50,600,500)
         
         
-        qbtn1 = QPushButton('생성하기',self)
-        qbtn1.setGeometry(650,50,300,100)
-        qbtn1.clicked.connect(self.button_clicked)
+        self.qbtn1 = QPushButton('생성하기',self)
+        self.qbtn1.setGeometry(650,50,300,100)
+        self.qbtn1.clicked.connect(self.button_clicked)
 
         
         
