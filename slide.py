@@ -24,7 +24,7 @@ def make_slide(lyric_str):
         slide = prs.slides.add_slide(blank_slide_layout)  # 슬라이드 추가
 
         # 위치, 가로/세로 길이 - 텍스트 상자
-        left = Cm(0)
+        left = Cm(7.62)
         top = Cm(0)
         width = Cm(25.4)
         height = Cm(19)
@@ -36,6 +36,10 @@ def make_slide(lyric_str):
         tf.text = slide_str[i]
         tf.vertical_anchor = MSO_ANCHOR.MIDDLE  # TOP 부분만 나와서 MIDDLE 찍었는데 이게 되네...
         tf.paragraphs[0].alignment = PP_ALIGN.CENTER
+        tf.paragraphs[0].align = PP_ALIGN.CENTER
+        
+        for paragraph in tf.paragraphs:
+            paragraph.alignment = PP_ALIGN.CENTER
         
         
     prs.save('lyricsPPT.pptx')
@@ -43,18 +47,19 @@ def make_slide(lyric_str):
     
     
     
+    
 # slide_str 만들기 / index : 슬라이드마다 들어가는 가사 두줄
 def get_slide_str(lyric_str):
     my_list = lyric_str.split('\n')
-    slide_list = []
+    slide_list = []     # slide 마다 들어가는 lyric list
     idx_count = 0
 
-    for idx, value in enumerate(my_list):
+    for idx, value in enumerate(my_list):   
         if idx % 2 == 0 and value == '':
             my_list[idx] = '\n'
             my_list.insert(idx + 1, '\n')
 
-    for idx, value in enumerate(my_list):
+    for idx, value in enumerate(my_list):   
 
         if idx % 2 == 0:
             if value == '':
