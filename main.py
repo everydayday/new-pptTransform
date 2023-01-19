@@ -21,11 +21,12 @@ class MyApp(QWidget):
         
 
         self.qte = QTextEdit(self)   ## self.qte 안 하니 button_clicked 시, qte를 attribute로 인식 못함.
-        self.qte.setGeometry(50,50,600,500)
+        self.qte.setGeometry(50,100,600,450)
+        self.qte.setPlaceholderText('텍스트를 입력하세요')
         
         
         self.qbtn1 = QPushButton('생성하기',self)
-        self.qbtn1.setGeometry(650,50,300,100)
+        self.qbtn1.setGeometry(650,100,300,100)
         self.qbtn1.clicked.connect(self.button_clicked)
 
         self.qbtn_1 = QPushButton('종료하기',self)
