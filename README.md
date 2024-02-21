@@ -1,0 +1,3 @@
+I tried to make a program that could put lyrics to powerpoint slides.
+
+Stil programming.....
